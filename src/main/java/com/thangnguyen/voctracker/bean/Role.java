@@ -1,33 +1,27 @@
 package com.thangnguyen.voctracker.bean;
 
-import java.util.Date;
-
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="VOC")
+@Table(name="roles")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class VOC {
+public class Role {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-	private String agent;
-	private Date date;
-	private double CSAT;
-	private String contactId;
-	private String loan;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="role_id")
+	private Integer roleId;
 	
-	@ManyToOne(optional = false)
-	private AppUser appUser;
+	private String authority;
+	
 }
